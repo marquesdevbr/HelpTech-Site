@@ -1,0 +1,494 @@
+/* ==========================================================
+   HelpTech — style.css
+   1. Variáveis   2. Base   3. Layout   4. Cabeçalho
+   5. Botões      6. Hero   7. Seções e cards
+   8. Processo    9. CTA   10. Rodapé   11. Animações
+   ========================================================== */
+
+/* 1. VARIÁVEIS ------------------------------------------- */
+:root {
+  --bg: #050a18;
+  --bg-soft: #08112a;
+  --surface: #0b1630;
+  --surface-2: #101e42;
+  --line: rgba(8, 168, 248, 0.22);
+  --line-strong: rgba(8, 168, 248, 0.55);
+
+  --blue: #0878f8;
+  --cyan: #08a8f8;
+  --cyan-soft: #6fd0ff;
+
+  --text: #f4f7ff;
+  --muted: #a3b3d2;
+
+  --font-title: "Sora", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow-glow: 0 0 0 1px var(--line), 0 12px 40px rgba(8, 120, 248, 0.18);
+  --header-h: 72px;
+  --container: 1120px;
+}
+
+/* 2. BASE ------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* linhas de circuito sutis ao fundo (inspiradas na logo) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgba(8, 120, 248, 0.22), transparent 60%),
+    radial-gradient(40rem 25rem at -10% 40%, rgba(8, 168, 248, 0.1), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='none' stroke='%2308a8f8' stroke-opacity='.07' stroke-width='1'%3E%3Cpath d='M0 40h50l20 20h90M0 110h30l25-25h105M80 0v35l15 15v110'/%3E%3C/g%3E%3Cg fill='%2308a8f8' fill-opacity='.12'%3E%3Ccircle cx='50' cy='40' r='2.5'/%3E%3Ccircle cx='55' cy='85' r='2.5'/%3E%3Ccircle cx='95' cy='50' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--cyan-soft);
+  text-underline-offset: 3px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--cyan);
+  color: #021024;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  z-index: 200;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* 3. LAYOUT ------------------------------------------------ */
+.container {
+  width: min(100% - 2.5rem, var(--container));
+  margin-inline: auto;
+}
+
+main { flex: 1; }
+
+.section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.section--alt { background: linear-gradient(180deg, transparent, var(--bg-soft) 20%, var(--bg-soft) 80%, transparent); }
+
+.section-head { max-width: 40rem; margin-bottom: 2.5rem; }
+.section-head p { color: var(--muted); }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 0.9rem;
+}
+
+/* 4. CABEÇALHO --------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-h);
+  background: rgba(5, 10, 24, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.55rem;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--text);
+}
+.brand-tech { color: var(--blue); }
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.97rem;
+  border-radius: 999px;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-link:hover { color: var(--text); background: rgba(8, 168, 248, 0.1); }
+.nav-link[aria-current="page"] {
+  color: var(--text);
+  background: rgba(8, 120, 248, 0.22);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+
+.nav-toggle {
+  display: none; /* aparece só no celular (responsive.css) */
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+}
+.nav-toggle-bars,
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  margin: 0 auto;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-toggle-bars { position: relative; }
+.nav-toggle-bars::before,
+.nav-toggle-bars::after { content: ""; position: absolute; left: 0; }
+.nav-toggle-bars::before { top: -6px; }
+.nav-toggle-bars::after { top: 6px; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::before { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars::after { transform: translateY(-6px) rotate(-45deg); }
+
+/* 5. BOTÕES ------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #021024;
+  box-shadow: 0 8px 28px rgba(8, 120, 248, 0.35);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(8, 168, 248, 0.5); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+.btn-ghost:hover { background: rgba(8, 168, 248, 0.12); border-color: var(--cyan); }
+
+/* 6. HERO -------------------------------------------------- */
+.hero { padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(3rem, 7vw, 5rem); }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--cyan-soft);
+  background: rgba(8, 120, 248, 0.1);
+  margin-bottom: 1.4rem;
+}
+.badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.hero h1 .accent {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-lead { font-size: 1.2rem; color: var(--muted); max-width: 34rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.8rem; }
+
+.hero-visual { position: relative; }
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  background: radial-gradient(circle, rgba(8, 120, 248, 0.35), transparent 65%);
+  filter: blur(30px);
+  z-index: -1;
+}
+.hero-logo {
+  width: 100%;
+  /* o fundo preto da imagem some no fundo escuro do site */
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 62%, transparent 96%);
+  mask-image: radial-gradient(ellipse at center, #000 62%, transparent 96%);
+}
+
+/* 7. SEÇÕES E CARDS ---------------------------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.4rem;
+  transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--line-strong); box-shadow: var(--shadow-glow); }
+.card p { color: var(--muted); font-size: 0.98rem; margin: 0; }
+
+.card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.icon-badge {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  margin-bottom: 1.1rem;
+  background: rgba(8, 120, 248, 0.16);
+  border: 1px solid var(--line-strong);
+  color: var(--cyan);
+}
+.icon-badge svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.note {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--cyan);
+  background: rgba(8, 120, 248, 0.08);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+.note strong { color: var(--text); }
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* 8. PROCESSO (linha do tempo) ----------------------------- */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.75rem;
+  position: relative;
+}
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 4%;
+  right: 4%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0.45;
+}
+.step { position: relative; text-align: center; padding: 0 0.25rem; }
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 0.9rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--cyan);
+  color: var(--cyan-soft);
+  font-family: var(--font-title);
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 18px rgba(8, 168, 248, 0.35);
+}
+.step h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+.step p { color: var(--muted); font-size: 0.88rem; line-height: 1.45; margin: 0; }
+
+/* 9. CHAMADA FINAL (CTA) ----------------------------------- */
+.cta-band {
+  text-align: center;
+  padding: clamp(2.2rem, 5vw, 3.5rem) 1.5rem;
+  border-radius: calc(var(--radius) + 6px);
+  border: 1px solid var(--line-strong);
+  background:
+    radial-gradient(40rem 14rem at 50% 0%, rgba(8, 120, 248, 0.3), transparent 70%),
+    var(--surface);
+}
+.cta-band p { color: var(--muted); max-width: 34rem; margin-inline: auto; }
+.cta-band .btn { margin-top: 0.8rem; }
+
+/* 10. RODAPÉ ----------------------------------------------- */
+.site-footer {
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+  background: rgba(5, 10, 24, 0.9);
+  padding: 2.5rem 0 1.5rem;
+  font-size: 0.95rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2rem;
+}
+.footer-grid h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 0.8rem;
+}
+.footer-grid p { color: var(--muted); margin: 0 0 0.5rem; }
+.footer-links { list-style: none; margin: 0; padding: 0; }
+.footer-links li { margin-bottom: 0.4rem; }
+.footer-links a { color: var(--muted); text-decoration: none; }
+.footer-links a:hover { color: var(--text); text-decoration: underline; }
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* 11. ANIMAÇÕES -------------------------------------------- */
+/* só esconde se o JavaScript estiver ativo (classe "js" no <html>) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
