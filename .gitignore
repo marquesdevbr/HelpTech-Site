@@ -1,0 +1,10 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+
+# Documentos internos do projeto (não publicar)
+docs-internos/
+*.docx
