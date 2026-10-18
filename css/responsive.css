@@ -59,3 +59,12 @@
 
   .hero-actions .btn { width: 100%; }
 }
+
+
+/* ==========================================================
+   Páginas internas — blocos de serviço
+   ========================================================== */
+@media (max-width: 860px) {
+  /* no celular, título e detalhes ficam um embaixo do outro */
+  .service { grid-template-columns: 1fr; gap: 1.2rem; }
+}

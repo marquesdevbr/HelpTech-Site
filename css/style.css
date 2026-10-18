@@ -492,3 +492,80 @@ main { flex: 1; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+
+/* ==========================================================
+   12. PÁGINAS INTERNAS — cabeçalho de página
+   (usado em servicos, produtos, projetos, sobre e contato)
+   ========================================================== */
+.page-hero { padding: clamp(2.5rem, 6vw, 4.5rem) 0 1rem; }
+.page-hero .lead { font-size: 1.15rem; color: var(--muted); max-width: 40rem; margin: 0; }
+
+/* ==========================================================
+   13. PÁGINA SERVIÇOS — blocos de serviço
+   ========================================================== */
+.service-list { display: grid; gap: 1.5rem; }
+
+/* cada serviço: coluna da esquerda (título) + direita (detalhes) */
+.service {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+}
+.service:hover { transform: none; } /* blocos grandes não "pulam" ao passar o mouse */
+.service h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); }
+
+/* etiquetas "Para quem" */
+.tag-label { margin: 1.2rem 0 0.5rem; font-size: 0.82rem; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; margin: 0; padding: 0; }
+.tag {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--cyan-soft);
+  border: 1px solid var(--line-strong);
+  background: rgba(8, 120, 248, 0.1);
+}
+
+/* lista "O que você recebe" / "Valor gerado" */
+.facts { margin: 0; display: grid; gap: 1.1rem; }
+.facts dt {
+  font-family: var(--font-title);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 0.25rem;
+}
+.facts dd { margin: 0; color: var(--text); }
+
+/* "Cuidados e limites" (abre e fecha sem JavaScript, usando <details>) */
+.care {
+  margin-top: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(5, 10, 24, 0.5);
+}
+.care summary {
+  cursor: pointer;
+  padding: 0.85rem 1.1rem;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.care summary::-webkit-details-marker { display: none; }
+.care summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--cyan);
+  transition: transform 0.25s;
+}
+.care[open] summary::after { transform: rotate(45deg); }
+.care summary:hover { color: var(--cyan-soft); }
+.care p { margin: 0; padding: 0 1.1rem 1.1rem; color: var(--muted); font-size: 0.98rem; }
