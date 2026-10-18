@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produtos — HelpTech</title>
+  <meta name="description" content="Placas de vídeo, processadores, memória RAM, periféricos e acessórios sob consulta, com compatibilidade verificada antes da compra.">
+  <meta name="theme-color" content="#050a18">
+
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:ital,wght@0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+
+  <!-- Página dentro de "pages/": caminhos começam com "../" -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body data-root="../" data-page="produtos">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <!-- O menu é montado pelo js/layout.js -->
+  <div id="site-header"></div>
+
+  <main id="conteudo">
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Produtos</span>
+        <h1>Componentes e periféricos, sob consulta</h1>
+        <p class="lead">
+          A venda de componentes é um complemento dos nossos serviços: indicamos uma peça
+          quando o diagnóstico mostra que ela é a solução, priorizando custo-benefício e compatibilidade.
+        </p>
+      </div>
+    </section>
+
+    <!-- FILTRO + LISTA DE CATEGORIAS -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Botões de filtro (a lógica está em js/interactions.js) -->
+        <div class="filters" role="group" aria-label="Filtrar por categoria"
+             data-filter-group data-target="#lista-produtos" data-status="#status-produtos">
+          <button type="button" class="chip-btn" data-filter="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="chip-btn" data-filter="gpu" aria-pressed="false">Placas de vídeo</button>
+          <button type="button" class="chip-btn" data-filter="cpu" aria-pressed="false">Processadores</button>
+          <button type="button" class="chip-btn" data-filter="ram" aria-pressed="false">Memória RAM</button>
+          <button type="button" class="chip-btn" data-filter="perifericos" aria-pressed="false">Periféricos</button>
+          <button type="button" class="chip-btn" data-filter="cabos" aria-pressed="false">Cabos e acessórios</button>
+        </div>
+
+        <!-- Aviso lido por leitores de tela quando o filtro muda -->
+        <p class="filter-status" id="status-produtos" aria-live="polite"></p>
+
+        <div class="product-grid" id="lista-produtos">
+
+          <!-- CATEGORIA: PLACAS DE VÍDEO -->
+          <article class="card product-card" data-category="gpu">
+            <div class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="10" rx="2"/><circle cx="14" cy="11" r="2.5"/><path d="M6 19h6M5 9h4M5 12h4"/></svg>
+            </div>
+            <span class="tag-soft">Sob consulta</span>
+            <h3>Placas de vídeo</h3>
+            <p>Indicadas quando a análise do uso e do hardware mostra que a placa de vídeo é a melhor solução.</p>
+            <p class="product-check"><strong>Antes de indicar, verificamos:</strong> fonte, placa-mãe, o restante do computador e o seu uso.</p>
+            <p class="product-ref">Modelos citados pela equipe apenas como referência: RX 580, RTX 5050, RX 6600 e RX 7600. Disponibilidade e preço mudam e são confirmados na data da compra.</p>
+            <a class="card-link" href="contato.html">Consultar sobre esta categoria</a>
+          </article>
+
+          <!-- CATEGORIA: PROCESSADORES -->
+          <article class="card product-card" data-category="cpu">
+            <div class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+            </div>
+            <span class="tag-soft">Sob consulta</span>
+            <h3>Processadores</h3>
+            <p>Indicados quando o diagnóstico aponta o processador como a melhor forma de melhorar o desempenho do seu computador.</p>
+            <p class="product-check"><strong>Antes de indicar, verificamos:</strong> compatibilidade com a placa-mãe e com o restante do computador.</p>
+            <p class="product-ref">Modelo citado pela equipe apenas como referência: AMD Ryzen 5 5600GE.</p>
+            <a class="card-link" href="contato.html">Consultar sobre esta categoria</a>
+          </article>
+
+          <!-- CATEGORIA: MEMÓRIA RAM -->
+          <article class="card product-card" data-category="ram">
+            <div class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="8" width="20" height="8" rx="1.5"/><path d="M6 8v8M10 8v8M14 8v8M18 8v8M5 16v3M9 16v3M13 16v3M17 16v3"/></svg>
+            </div>
+            <span class="tag-soft">Sob consulta</span>
+            <h3>Memória RAM</h3>
+            <p>Mais memória para o computador acompanhar o seu uso, depois de avaliar o que já está instalado.</p>
+            <p class="product-check"><strong>Antes de indicar, verificamos:</strong> modelo, compatibilidade com a placa-mãe, garantia e custo total.</p>
+            <a class="card-link" href="contato.html">Consultar sobre esta categoria</a>
+          </article>
+
+          <!-- CATEGORIA: PERIFÉRICOS -->
+          <article class="card product-card" data-category="perifericos">
+            <div class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="2"/><path d="M7 11h.01M11 11h.01M15 11h.01M7 14.5h10"/></svg>
+            </div>
+            <span class="tag-soft">Sob consulta</span>
+            <h3>Periféricos</h3>
+            <p>Itens para complementar o seu equipamento, escolhidos conforme a sua necessidade e o seu orçamento.</p>
+            <p class="product-check"><strong>Antes de indicar, verificamos:</strong> compatibilidade, garantia e custo total.</p>
+            <a class="card-link" href="contato.html">Consultar sobre esta categoria</a>
+          </article>
+
+          <!-- CATEGORIA: CABOS E ACESSÓRIOS -->
+          <article class="card product-card" data-category="cabos">
+            <div class="icon-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0zM12 16v5"/></svg>
+            </div>
+            <span class="tag-soft">Sob consulta</span>
+            <h3>Cabos e acessórios</h3>
+            <p>Cabos e acessórios de informática, conforme a necessidade do serviço ou do seu equipamento.</p>
+            <p class="product-check"><strong>Antes de indicar, verificamos:</strong> tipo de conexão e compatibilidade com o seu equipamento.</p>
+            <a class="card-link" href="contato.html">Consultar sobre esta categoria</a>
+          </article>
+
+        </div>
+
+        <p class="note reveal">
+          <strong>Sem tabela de preços.</strong>
+          Valores mudam com o mercado. Cada item é cotado na data da compra e o custo total
+          (peça, frete e garantia) aparece discriminado no orçamento. Esta página é demonstrativa:
+          a HelpTech é um projeto acadêmico e, inicialmente, não mantém estoque: as compras são feitas após o pedido.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA A COMPRA -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Como funciona</span>
+          <h2>Primeiro o diagnóstico, depois a peça</h2>
+          <p>Para você não comprar algo que não resolve o problema.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card reveal"><h3>1. Diagnóstico</h3><p>Testamos o equipamento e entendemos o seu uso.</p></article>
+          <article class="card reveal"><h3>2. Compatibilidade</h3><p>Conferimos modelo, fonte, placa-mãe e garantia.</p></article>
+          <article class="card reveal"><h3>3. Cotação</h3><p>Comparamos custo total, frete, prazo e reputação do fornecedor.</p></article>
+          <article class="card reveal"><h3>4. Compra e entrega</h3><p>Compramos após o seu aceite, instalamos e validamos com você.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMADA FINAL -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2>Precisa de uma peça?</h2>
+          <p>Conte o que o seu computador faz hoje e o que você quer melhorar.</p>
+          <a class="btn btn-primary" href="contato.html">Ir para a página de contato</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- O rodapé é montado pelo js/layout.js -->
+  <div id="site-footer"></div>
+
+  <script src="../js/layout.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/interactions.js" defer></script>
+</body>
+</html>

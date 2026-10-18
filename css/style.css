@@ -569,3 +569,75 @@ main { flex: 1; }
 .care[open] summary::after { transform: rotate(45deg); }
 .care summary:hover { color: var(--cyan-soft); }
 .care p { margin: 0; padding: 0 1.1rem 1.1rem; color: var(--muted); font-size: 0.98rem; }
+
+
+/* ==========================================================
+   14. FILTROS (botões de filtro reutilizáveis)
+   Usados em Produtos e, depois, em Projetos.
+   ========================================================== */
+[hidden] { display: none !important; } /* garante que itens filtrados sumam de verdade */
+
+.filters { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1rem; }
+
+.chip-btn {
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+.chip-btn:hover { color: var(--text); border-color: var(--cyan); }
+/* botão do filtro ativo */
+.chip-btn[aria-pressed="true"] {
+  color: #021024;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-color: transparent;
+}
+
+.filter-status { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
+
+/* ==========================================================
+   15. PÁGINA PRODUTOS — cards de categoria
+   ========================================================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+
+.product-card { display: flex; flex-direction: column; }
+.product-card h3 { margin-bottom: 0.5rem; }
+.product-card p { margin-bottom: 1rem; }
+
+/* selo "Sob consulta" */
+.tag-soft {
+  align-self: flex-start;
+  padding: 0.2rem 0.7rem;
+  margin-bottom: 0.9rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cyan-soft);
+  background: rgba(8, 120, 248, 0.14);
+  border: 1px solid var(--line-strong);
+}
+
+.product-check { font-size: 0.9rem; color: var(--muted); margin: 0 0 0.8rem; }
+.product-check strong { color: var(--text); font-weight: 600; }
+
+/* linha de modelos citados como referência */
+.product-ref {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--line);
+  margin: 0 0 1rem;
+}
+
+.product-card .card-link { margin-top: auto; padding-top: 0.4rem; }
