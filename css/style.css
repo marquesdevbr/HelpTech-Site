@@ -641,3 +641,42 @@ main { flex: 1; }
 }
 
 .product-card .card-link { margin-top: auto; padding-top: 0.4rem; }
+
+
+/* ==========================================================
+   16. PÁGINA PROJETOS — cards de projeto demonstrativo
+   Cada card define sua cor em style="--accent: #xxxxxx"
+   ========================================================== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card { display: flex; flex-direction: column; }
+.project-card h3 { margin-bottom: 0.2rem; }
+
+/* miniatura ilustrativa: janela de navegador desenhada em CSS */
+.mock {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0a1226;
+  margin-bottom: 1.1rem;
+}
+.mock-bar { display: flex; gap: 5px; padding: 8px 10px; background: rgba(255, 255, 255, 0.04); }
+.mock-bar span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); }
+.mock-hero { padding: 1.1rem 1rem 1rem; background: linear-gradient(135deg, var(--accent), #0b1630 130%); }
+.mock-title { font-family: var(--font-title); font-weight: 700; color: #fff; font-size: 1.05rem; }
+.mock-line { height: 6px; width: 60%; border-radius: 3px; background: rgba(255, 255, 255, 0.55); margin-top: 0.5rem; }
+.mock-btn { display: block; margin-top: 0.7rem; height: 14px; width: 64px; border-radius: 999px; background: #fff; }
+.mock-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 8px; }
+.mock-row i { display: block; height: 34px; border-radius: 6px; background: rgba(255, 255, 255, 0.07); border-top: 3px solid var(--accent); }
+
+.project-type { color: var(--cyan-soft); font-size: 0.85rem; font-weight: 600; margin: 0 0 0.8rem; }
+
+/* lista "o que este site teria" */
+.features { list-style: none; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.35rem; font-size: 0.93rem; color: var(--muted); }
+.features li { padding-left: 1.4rem; position: relative; }
+.features li::before { content: "✓"; position: absolute; left: 0; color: var(--cyan); font-weight: 700; }
+.project-card .tag-soft { margin-bottom: 0.7rem; }

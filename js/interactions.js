@@ -7,7 +7,7 @@
 
 /* 1. FILTROS POR CATEGORIA
    Como usar no HTML:
-     <div class="filters" data-filter-group data-target="#lista" data-status="#status">
+     <div class="filters" data-filter-group data-target="#lista" data-status="#status" data-noun="projetos">
        <button class="chip-btn" data-filter="todos" aria-pressed="true">Todos</button>
        <button class="chip-btn" data-filter="gpu" aria-pressed="false">Placas</button>
      </div>
@@ -22,6 +22,7 @@
     const status = document.querySelector(group.dataset.status);
     if (!target) return;
 
+    const noun = group.dataset.noun || "resultados"; // texto do contador
     const buttons = group.querySelectorAll("[data-filter]");
     const items = target.querySelectorAll("[data-category]");
 
@@ -41,11 +42,9 @@
       });
 
       // avisa quantos itens aparecem (a região tem aria-live no HTML)
+      // o nome dos itens vem de data-noun no HTML (ex.: "projetos")
       if (status) {
-        status.textContent =
-          filter === "todos"
-            ? `Mostrando todas as ${items.length} categorias.`
-            : `Mostrando ${visible} de ${items.length} categorias.`;
+        status.textContent = `Mostrando ${visible} de ${items.length} ${noun}.`;
       }
     }
 

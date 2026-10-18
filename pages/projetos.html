@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projetos — HelpTech</title>
+  <meta name="description" content="Conceitos de sites para restaurante, salão de beleza, barbearia, e-commerce e outros comércios, criados pela HelpTech para demonstrar o que pode ser desenvolvido.">
+  <meta name="theme-color" content="#050a18">
+
+  <link rel="icon" href="../assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:ital,wght@0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+
+  <!-- Página dentro de "pages/": caminhos começam com "../" -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body data-root="../" data-page="projetos">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <!-- O menu é montado pelo js/layout.js -->
+  <div id="site-header"></div>
+
+  <main id="conteudo">
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Projetos</span>
+        <h1>Sites para o seu tipo de negócio</h1>
+        <p class="lead">
+          Conceitos que mostram o que a HelpTech pode desenvolver para comércios do dia a dia.
+          São projetos demonstrativos, com nomes fictícios, e não clientes reais.
+        </p>
+      </div>
+    </section>
+
+    <!-- FILTRO + LISTA DE PROJETOS -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Botões de filtro (a lógica está em js/interactions.js) -->
+        <div class="filters" role="group" aria-label="Filtrar projetos por segmento"
+             data-filter-group data-target="#lista-projetos" data-status="#status-projetos" data-noun="projetos">
+          <button type="button" class="chip-btn" data-filter="todos" aria-pressed="true">Todos</button>
+          <button type="button" class="chip-btn" data-filter="alimentacao" aria-pressed="false">Alimentação</button>
+          <button type="button" class="chip-btn" data-filter="beleza" aria-pressed="false">Beleza</button>
+          <button type="button" class="chip-btn" data-filter="loja" aria-pressed="false">Lojas</button>
+          <button type="button" class="chip-btn" data-filter="servicos" aria-pressed="false">Serviços</button>
+        </div>
+
+        <!-- Aviso lido por leitores de tela quando o filtro muda -->
+        <p class="filter-status" id="status-projetos" aria-live="polite"></p>
+
+        <div class="project-grid" id="lista-projetos">
+
+          <!-- PROJETO: RESTAURANTE -->
+          <article class="card project-card" data-category="alimentacao" style="--accent: #e8590c;">
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-hero"><div class="mock-title">Sabor &amp; Brasa</div><div class="mock-line"></div><div class="mock-btn"></div></div>
+              <div class="mock-row"><i></i><i></i><i></i></div>
+            </div>
+            <span class="tag-soft">Projeto demonstrativo</span>
+            <h3>Sabor &amp; Brasa</h3>
+            <p class="project-type">Restaurante</p>
+            <p>Um site para o cliente conhecer o cardápio, saber como chegar e reservar uma mesa.</p>
+            <ul class="features">
+              <li>Cardápio digital</li>
+              <li>Horários e localização</li>
+              <li>Pedido de reserva por formulário</li>
+              <li>Galeria de pratos</li>
+            </ul>
+          </article>
+
+          <!-- PROJETO: PADARIA E CAFETERIA -->
+          <article class="card project-card" data-category="alimentacao" style="--accent: #d9a441;">
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-hero"><div class="mock-title">Pão de Praça</div><div class="mock-line"></div><div class="mock-btn"></div></div>
+              <div class="mock-row"><i></i><i></i><i></i></div>
+            </div>
+            <span class="tag-soft">Projeto demonstrativo</span>
+            <h3>Pão de Praça</h3>
+            <p class="project-type">Padaria e cafeteria</p>
+            <p>Uma vitrine online para mostrar os produtos do dia e receber encomendas de bolos e salgados.</p>
+            <ul class="features">
+              <li>Vitrine de produtos</li>
+              <li>Encomendas por formulário</li>
+              <li>Horário de funcionamento</li>
+              <li>Mapa de localização</li>
+            </ul>
+          </article>
+
+          <!-- PROJETO: SALÃO DE BELEZA -->
+          <article class="card project-card" data-category="beleza" style="--accent: #d6336c;">
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-hero"><div class="mock-title">Studio Aurora</div><div class="mock-line"></div><div class="mock-btn"></div></div>
+              <div class="mock-row"><i></i><i></i><i></i></div>
+            </div>
+            <span class="tag-soft">Projeto demonstrativo</span>
+            <h3>Studio Aurora</h3>
+            <p class="project-type">Salão de beleza</p>
+            <p>Um site que apresenta os serviços, mostra os trabalhos e facilita o pedido de horário.</p>
+            <ul class="features">
+              <li>Lista de serviços</li>
+              <li>Galeria de trabalhos</li>
+              <li>Pedido de horário por formulário</li>
+              <li>Apresentação da equipe</li>
+            </ul>
+          </article>
+
+          <!-- PROJETO: BARBEARIA -->
+          <article class="card project-card" data-category="beleza" style="--accent: #c9a227;">
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-hero"><div class="mock-title">Corte Nobre</div><div class="mock-line"></div><div class="mock-btn"></div></div>
+              <div class="mock-row"><i></i><i></i><i></i></div>
+            </div>
+            <span class="tag-soft">Projeto demonstrativo</span>
+            <h3>Corte Nobre</h3>
+            <p class="project-type">Barbearia</p>
+            <p>Um site direto ao ponto, para o cliente ver os serviços, os horários e pedir o atendimento.</p>
+            <ul class="features">
+              <li>Serviços da barbearia</li>
+              <li>Horários de atendimento</li>
+              <li>Pedido de horário por formulário</li>
+              <li>Localização e contato</li>
+            </ul>
+          </article>
+
+          <!-- PROJETO: E-COMMERCE -->
+          <article class="card project-card" data-category="loja" style="--accent: #2f9e44;">
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-hero"><div class="mock-title">Casa Viva</div><div class="mock-line"></div><div class="mock-btn"></div></div>
+              <div class="mock-row"><i></i><i></i><i></i></div>
+            </div>
+            <span class="tag-soft">Projeto demonstrativo</span>
+            <h3>Casa Viva</h3>
+            <p class="project-type">E-commerce (decoração)</p>
+            <p>Uma loja virtual com catálogo e carrinho. Pagamento e frete dependem de serviços externos contratados à parte.</p>
+            <ul class="features">
+              <li>Catálogo com filtros</li>
+              <li>Página de cada produto</li>
+              <li>Carrinho de compras</li>
+              <li>Integração com pagamento e frete</li>
+            </ul>
+          </article>
+
+          <!-- PROJETO: PET SHOP -->
+          <article class="card project-card" data-category="loja" style="--accent: #1098ad;">
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-hero"><div class="mock-title">Patas &amp; Cia</div><div class="mock-line"></div><div class="mock-btn"></div></div>
+              <div class="mock-row"><i></i><i></i><i></i></div>
+            </div>
+            <span class="tag-soft">Projeto demonstrativo</span>
+            <h3>Patas &amp; Cia</h3>
+            <p class="project-type">Pet shop</p>
+            <p>Um site para apresentar produtos e serviços para animais e receber pedidos de agendamento.</p>
+            <ul class="features">
+              <li>Serviços para os pets</li>
+              <li>Vitrine de produtos</li>
+              <li>Agendamento por formulário</li>
+              <li>Galeria dos clientes de quatro patas</li>
+            </ul>
+          </article>
+
+          <!-- PROJETO: ACADEMIA -->
+          <article class="card project-card" data-category="servicos" style="--accent: #e03131;">
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-hero"><div class="mock-title">Ritmo Fit</div><div class="mock-line"></div><div class="mock-btn"></div></div>
+              <div class="mock-row"><i></i><i></i><i></i></div>
+            </div>
+            <span class="tag-soft">Projeto demonstrativo</span>
+            <h3>Ritmo Fit</h3>
+            <p class="project-type">Academia</p>
+            <p>Um site para apresentar as modalidades e os horários e captar interessados em uma aula experimental.</p>
+            <ul class="features">
+              <li>Modalidades oferecidas</li>
+              <li>Grade de horários</li>
+              <li>Apresentação de planos</li>
+              <li>Formulário de aula experimental</li>
+            </ul>
+          </article>
+
+          <!-- PROJETO: OFICINA MECÂNICA -->
+          <article class="card project-card" data-category="servicos" style="--accent: #4c6ef5;">
+            <div class="mock" aria-hidden="true">
+              <div class="mock-bar"><span></span><span></span><span></span></div>
+              <div class="mock-hero"><div class="mock-title">Auto Center Estrela</div><div class="mock-line"></div><div class="mock-btn"></div></div>
+              <div class="mock-row"><i></i><i></i><i></i></div>
+            </div>
+            <span class="tag-soft">Projeto demonstrativo</span>
+            <h3>Auto Center Estrela</h3>
+            <p class="project-type">Oficina mecânica</p>
+            <p>Um site para o cliente entender os serviços e pedir um orçamento sem precisar ligar.</p>
+            <ul class="features">
+              <li>Serviços da oficina</li>
+              <li>Pedido de orçamento por formulário</li>
+              <li>Horários e localização</li>
+              <li>Contato rápido</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <p class="note reveal">
+          <strong>Sobre estes projetos.</strong>
+          Os nomes são fictícios e qualquer semelhança com negócios reais é coincidência.
+          As miniaturas são ilustrações do estilo de cada site, não páginas publicadas.
+          A HelpTech é um projeto acadêmico e ainda não possui clientes reais.
+        </p>
+      </div>
+    </section>
+
+    <!-- CHAMADA FINAL -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2>O seu negócio não está na lista?</h2>
+          <p>Cada site parte do seu objetivo. Conte o que você faz e como os clientes chegam até você.</p>
+          <a class="btn btn-primary" href="contato.html">Ir para a página de contato</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- O rodapé é montado pelo js/layout.js -->
+  <div id="site-footer"></div>
+
+  <script src="../js/layout.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/interactions.js" defer></script>
+</body>
+</html>
